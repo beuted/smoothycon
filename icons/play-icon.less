@@ -1,0 +1,84 @@
+.play-icon {
+	display: inline-block;
+
+	width: 0;
+	height: 0;
+	background: transparent;
+
+	.transform-origin(0, @width/4);
+	.translate(-@width/4, -@width/4);
+	.transition(transform @duration);
+
+	&::before, &::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 0;
+		height: 0;
+		border-top: @width/3 solid transparent;
+		border-bottom: @width/3 solid transparent;
+
+		border-left: @width/2 solid @menu-icon-color;
+
+		transition: border @duration, height @duration, transform @duration;
+	}
+}
+
+// HOVER
+.play-icon.hover {
+	&::before {
+		border-top: @width/3+@width/16 solid transparent;
+		border-bottom: @width/3+@width/16 solid transparent;
+
+		border-left: @width/2+@width/16 solid @menu-icon-color;
+
+		.translate(0, -@width/16);
+	}
+	&::after {
+		border-top: @width/3+@width/16 solid transparent;
+		border-bottom: @width/3+@width/16 solid transparent;
+
+		border-left: @width/2+@width/16 solid @menu-icon-color;
+
+		.translate(0, -@width/16);
+	}
+}
+
+.play-icon.open {
+	&.hover {
+		&::before {
+			height: @width/4+@width/16;
+			.translate(-@width/32, -@width/8-@width/32);
+		}
+		&::after {
+			height: @width/4+@width/16;
+			.translate(-@width/32, @width/2-@width/8-@width/32);
+		}
+	}
+}
+
+// OPEN
+.play-icon.open {
+	transition: border @duration, height @duration, transform @duration;
+
+	.transform-origin(0, @width/4);
+	.rotate(270deg);
+	background: transparent;
+	&::before {
+		border-top: 0 solid transparent;
+		border-bottom: 0 solid transparent;
+		height: @width/4;
+
+		.translate(0, -@width/8);
+	}
+	&::after {
+		border-top: 0 solid transparent;
+		border-bottom: 0 solid transparent;
+		height: @width/4;
+
+		.translate(0, @width/2-@width/8);
+	}
+}

@@ -1,0 +1,66 @@
+@height: @width/10;
+
+.check-icon {
+	display: inline-block;
+
+	width: @width;
+	height: @height;
+	background: transparent;
+
+	.translate(-@width/2, -@height/2);
+	transition: background @duration, transform @duration;
+
+	&::before, &::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: @width;
+		height: @height;
+		background-color: @menu-icon-color;
+
+		.rotate(45deg);
+		.transition(transform @duration);
+	}
+
+	&::after {
+		.rotate(-45deg);
+	}
+}
+
+// HOVER
+.check-icon.hover {
+	&::before {
+		transform: rotate(45deg) scale(1, @hoverthickness);
+	}
+	&::after {
+		transform: rotate(-45deg) scale(1, @hoverthickness);
+	}
+}
+
+.check-icon.open {
+	&.hover {
+		transform: translateX(-@width/8) translateY(@width/2) rotate(180deg);
+		&::before {
+			transform: rotate(-45deg) translateY(@width/2) translateX(-@width/4) scale(1, @hoverthickness);
+		}
+		&::after {
+			transform: rotate(45deg) translateX(@width/2+@width/4-@height/2) translateY(-@width/4+@height/2) scale(0.5, @hoverthickness);
+		}
+	}
+}
+
+// OPEN
+.check-icon.open {
+	transform: translateX(-@width/8) translateY(@width/2) rotate(180deg);
+	&::before {
+		transform: rotate(-45deg) translateY(@width/2) translateX(-@width/4);
+	}
+
+	&::after {
+		transform: rotate(45deg) translateX(@width/2+@width/4-@height/2) translateY(-@width/4+@height/2) scale(0.5,1);
+	}
+}
+

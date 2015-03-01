@@ -1,0 +1,46 @@
+@font-face {
+    font-family: audimat;
+    src: url(assets/audimat/AUdimat-Regular.otf);
+}
+
+@font-face {
+    font-family: audimatbold;
+    src: url(assets/audimat/AUdimat-Bold.otf);
+}
+
+body {
+	background-color: #6633FF;
+	color: #FFF;
+	padding: 40px;
+	padding-left: 100px;
+	padding-right: 100px;
+	font-family: audimat;
+	font-size: 16pt;
+}
+
+h1 {
+	text-align: center;
+	font-family: audimat;
+	font-size: 30pt;
+}
+
+.iconrow {
+	margin-top: 50px;
+	height: 50px;
+	width: 400px;
+	margin-right: auto; margin-left: auto;
+	vertical-align: middle
+}
+
+.iconcontainer {
+	width:50px;
+	height:50px;
+	margin: auto;
+	display: inline-block;
+}
+
+span {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+}

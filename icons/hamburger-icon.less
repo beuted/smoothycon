@@ -1,0 +1,66 @@
+@height: @width/10;
+
+.hamburger-icon {
+	display: inline-block;
+
+	width: @width;
+	height: @height;
+	background-color: @menu-icon-color;
+
+	.translate(-@width/2, -@height/2);
+	transition: background @duration, transform @duration;
+
+	&::before, &::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: @width;
+		height: @height;
+		background-color: @menu-icon-color;
+
+		.translate(0, -@height*3);
+		.transition(transform @duration);
+	}
+
+	&::after {
+		.translate(0, @height*3);
+	}
+}
+
+// HOVER
+.hamburger-icon.hover {
+	&::before {
+		.translate(0, -@height*4);
+	}
+	&::after {
+		.translate(0, @height*4);
+	}
+}
+
+.hamburger-icon.open {
+	&.hover {
+		&::before {
+			transform: translateX(@width/2) rotate(45deg) scale(1, @hoverthickness);
+		}
+		&::after {
+			transform: translateX(@width/2) rotate(-45deg) scale(1, @hoverthickness);
+		}
+	}
+}
+
+
+
+// OPEN
+.hamburger-icon.open {
+	.rotate(180deg);
+	background: transparent;
+	&::before {
+		transform: translateX(@width/2) rotate(45deg);
+	}
+	&::after {
+		transform: translateX(@width/2) rotate(-45deg);
+	}
+}
