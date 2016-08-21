@@ -1,7 +1,7 @@
 # smoothycon
 Animated pure-css icons, with *no font* and *no SVG*
 
-## [Demo](http://csgo-mateschecker.com/smoothycon/demo.html)
+## [Demo](http://perso.csgo-mates.com/smoothycon/)
 
 ##Work in progress
 * Change \<div\> to \<i\>
